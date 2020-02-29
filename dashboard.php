@@ -10,10 +10,20 @@ $data_tourist = $database->getReference($reference_tourist)->getValue();
 
 $reference_ticket = 'Ticket';
 $data_ticket = $database->getReference($reference_ticket)->getValue();
-$child_ticket = $database->getReference($reference_ticket)->getChildKeys();
 
 $reference_tour = 'Tour';
 $data_tour = $database->getReference($reference_tour)->getValue();
+
+$user = $database->getReference($reference_ticket)->getChildKeys();
+$ticket_total = 0;
+
+for ($i = 0; $i < count($user); $i++) {
+    $temp = $user[$i];
+    $temp_final = $data_tourist[$temp];
+    $reference_ticket_count = 'Ticket/'.$temp_final['username'];
+    $counter = sizeof($database->getReference($reference_ticket_count)->getChildKeys());
+    $ticket_total += $counter;
+}
 
 ?>
 
@@ -178,7 +188,7 @@ $data_tour = $database->getReference($reference_tour)->getValue();
                                 TICKET BEING SOLD
                             </p>
                             <p class="value-item">
-                                <?php echo count($data_ticket) ?>
+                                <?php echo $ticket_total ?>
                             </p>
                             <p class="desc-item">
                                 around the world
@@ -307,7 +317,7 @@ $data_tour = $database->getReference($reference_tour)->getValue();
 
                     <div class="divider-line"></div>
 
-                    <?php for ($i =0; $i < count($child_ticket); $i++) { ?>
+                    <?php for ($i =0; $i < count($user); $i++) { ?>
 
                     <div class="user-item">
                         <div class="user-picture">
@@ -315,7 +325,7 @@ $data_tour = $database->getReference($reference_tour)->getValue();
                         </div>
                         <div class="user-info">
                             <p class="title">
-                                 <?php $temp_user = $child_ticket[$i];
+                                 <?php $temp_user = $user[$i];
                                     $temp_user_final = $data_tourist[$temp_user];
                                     echo $temp_user_final['name'];
                                  ?>
