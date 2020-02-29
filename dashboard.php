@@ -48,7 +48,7 @@ for ($i = 0; $i < count($user); $i++) {
             <div class="menus">
 
                 <div class="item-menu">
-                    <a href="dashboard.html">
+                    <a href="dashboard.php">
                         <p class="icon-item-menu">
                             <i class="fab fa-delicious"></i>
                         </p>
@@ -56,7 +56,7 @@ for ($i = 0; $i < count($user); $i++) {
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="sales.html">
+                    <a href="sales.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-ticket-alt"></i>
                         </p>
@@ -64,7 +64,7 @@ for ($i = 0; $i < count($user); $i++) {
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="wisata.html">
+                    <a href="wisata.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-globe"></i>
                         </p>
@@ -72,7 +72,7 @@ for ($i = 0; $i < count($user); $i++) {
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="customer.html">
+                    <a href="customer.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-users"></i>
                         </p>
@@ -80,7 +80,7 @@ for ($i = 0; $i < count($user); $i++) {
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="setting.html">
+                    <a href="setting.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-cog"></i>
                         </p>
@@ -107,27 +107,27 @@ for ($i = 0; $i < count($user); $i++) {
             <?php echo $data['bio']; ?>
             </p>
             <ul class="admin-menus">
-                <a href="dashboard.html">
+                <a href="dashboard.php">
                     <li class="active-link">
                         My Dashboard
                     </li>
                 </a>
-                <a href="sales.html">
+                <a href="sales.php">
                     <li>
                         Ticket Sales
                     </li>
                 </a>
-                <a href="wisata.html">
+                <a href="wisata.php">
                     <li>
                         Manage Wisata
                     </li>
                 </a>
-                <a href="customer.html">
+                <a href="customer.php">
                     <li>
                         Customers <span class="badge-tiketsaya badge badge-pill badge-primary">96</span>
                     </li>
                 </a>
-                <a href="setting.html">
+                <a href="setting.php">
                     <li>
                         Account Settings
                     </li>
@@ -235,53 +235,7 @@ for ($i = 0; $i < count($user); $i++) {
 
                     <div class="divider-line"></div>
 
-                    <div class="user-item">
-                        <div class="user-picture">
-                            <img src="images/user_1.png" alt="">
-                        </div>
-                        <div class="user-info">
-                            <p class="title">
-                                Julia Fynn
-                            </p>
-                            <br>
-                            <p class="sub-title">
-                                Traveller
-                            </p>
-                        </div>
-                        <a href="#" class="btn btn-small-border btn-primary ">View Profile</a>
-                    </div>
-
-                    <div class="user-item">
-                        <div class="user-picture">
-                            <img src="images/user_2.png" alt="">
-                        </div>
-                        <div class="user-info">
-                            <p class="title">
-                                Riku Nana
-                            </p>
-                            <br>
-                            <p class="sub-title">
-                                Explorer
-                            </p>
-                        </div>
-                        <a href="#" class="btn btn-small-border btn-primary ">View Profile</a>
-                    </div>
-
-                    <div class="user-item">
-                        <div class="user-picture">
-                            <img src="images/user_3.png" alt="">
-                        </div>
-                        <div class="user-info">
-                            <p class="title">
-                                Chintya Vee
-                            </p>
-                            <br>
-                            <p class="sub-title">
-                                Blogger
-                            </p>
-                        </div>
-                        <a href="#" class="btn btn-small-border btn-primary ">View Profile</a>
-                    </div>
+                    <?php for ($i =0; $i < count($user); $i++) { ?>
 
                     <div class="user-item">
                         <div class="user-picture">
@@ -289,15 +243,20 @@ for ($i = 0; $i < count($user); $i++) {
                         </div>
                         <div class="user-info">
                             <p class="title">
-                                Julia Fynn
+                            <?php $temp_user = $user[$i];
+                                    $temp_user_final = $data_tourist[$temp_user];
+                                    echo $temp_user_final['name'];
+                                 ?>
                             </p>
                             <br>
                             <p class="sub-title">
-                                Traveller
+                             <?php echo $temp_user_final['bio']; ?>
                             </p>
                         </div>
                         <a href="#" class="btn btn-small-border btn-primary ">View Profile</a>
                     </div>
+
+                    <?php } ?>
 
                 </div>
 
@@ -332,8 +291,7 @@ for ($i = 0; $i < count($user); $i++) {
                             </p>
                             <br>
                             <p class="sub-title">
-                                <?php echo $temp_user_final['bio'];
-                                ?>
+                                <?php echo $temp_user_final['bio']; ?>
                             </p>
                         </div>
                         <a href="#" class="btn btn-small-border btn-primary ">View Profile</a>
