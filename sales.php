@@ -1,5 +1,17 @@
 <?php
-include 'firebase/auth_session.php'
+include 'firebase/auth_session.php';
+include 'firebase/firebase.php';
+
+$reference = 'User/' . $_SESSION['username'];
+$data = $database->getReference($reference)->getValue();
+
+$reference_tourist = 'User';
+$data_tourist = $database->getReference($reference_tourist)->getValue();
+
+$reference_ticket = 'Ticket';
+$data_ticket = $database->getReference($reference_ticket)->getValue();
+
+$user = $database->getReference("Ticket")->getChildKeys();
 ?>
 
 <html>
@@ -23,7 +35,7 @@ include 'firebase/auth_session.php'
             <div class="menus">
 
                 <div class="item-menu inactive">
-                    <a href="dashboard.html">
+                    <a href="dashboard.php">
                         <p class="icon-item-menu">
                             <i class="fab fa-delicious"></i>
                         </p>
@@ -31,7 +43,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu">
-                    <a href="sales.html">
+                    <a href="sales.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-ticket-alt"></i>
                         </p>
@@ -39,7 +51,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="wisata.html">
+                    <a href="wisata.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-globe"></i>
                         </p>
@@ -47,7 +59,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="customer.html">
+                    <a href="customer.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-users"></i>
                         </p>
@@ -55,7 +67,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="setting.html">
+                    <a href="setting.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-cog"></i>
                         </p>
@@ -76,33 +88,33 @@ include 'firebase/auth_session.php'
                 <img src="images/admin_picture.png" alt="">
             </div>
             <p class="admin-name">
-                Angga Risky
+                <?php echo $data['name']; ?>
             </p>
             <p class="admin-level">
-                Super Admin
+                <?php echo $data['bio']; ?>
             </p>
             <ul class="admin-menus">
-                <a href="dashboard.html">
+                <a href="dashboard.php">
                     <li>
                         My Dashboard
                     </li>
                 </a>
-                <a href="sales.html">
+                <a href="sales.php">
                     <li class="active-link">
                         Ticket Sales
                     </li>
                 </a>
-                <a href="wisata.html">
+                <a href="wisata.php">
                     <li>
                         Manage Wisata
                     </li>
                 </a>
-                <a href="customer.html">
+                <a href="customer.php">
                     <li>
                         Customers <span class="badge-tiketsaya badge badge-pill badge-primary">96</span>
                     </li>
                 </a>
-                <a href="setting.html">
+                <a href="setting.php">
                     <li>
                         Account Settings
                     </li>
@@ -146,80 +158,44 @@ include 'firebase/auth_session.php'
                         </thead>
                         <tbody>
 
+                        <?php for ($i =0; $i < count($user); $i++) { ?>
                             <tr>
                                 <td scope="row user-table-item">
                                     <img class="user-table-item" src="images/user_1.png" />
                                 </td>
-                                <td>Mark Balley</td>
-                                <td>2 Place</td>
-                                <td>US$ 109</td>
                                 <td>
-                                    <a href="sales_detail.html" class="btn btn-small-table btn-primary ">Details</a>
+                                    <?php $temp_user = $user[$i];
+                                        $temp_user_final = $data_tourist[$temp_user];
+                                        echo $temp_user_final['name'];
+                                    ?>
+                                 </td>
+                                <td>
+                                    <?php
+                                        $temp_user = $user[$i];
+                                        $temp_user_final = $data_tourist[$temp_user];
+                                        echo sizeof($data_ticket[$temp_user_final['username']]);
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php $temp_user = $user[$i];
+                                        $temp_user_final = $data_tourist[$temp_user];
+                                        echo $temp_user_final['balance'];
+                                    ?>
+                                </td>
+                                <td>
+                                    <a href="sales_detail.php" class="btn btn-small-table btn-primary ">Details</a>
                                 </td>
                             </tr>
-
-                            <tr>
-                                <td scope="row user-table-item">
-                                    <img class="user-table-item" src="images/user_3.png" />
-                                </td>
-                                <td>Aulia Amanda</td>
-                                <td>6 Place</td>
-                                <td>US$ 822</td>
-                                <td>
-                                    <a href="#" class="btn btn-small-table btn-primary ">Details</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td scope="row user-table-item">
-                                    <img class="user-table-item" src="images/user_2.png" />
-                                </td>
-                                <td>Puji Sari</td>
-                                <td>3 Place</td>
-                                <td>US$ 500</td>
-                                <td>
-                                    <a href="#" class="btn btn-small-table btn-primary ">Details</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td scope="row user-table-item">
-                                    <img class="user-table-item" src="images/user_1.png" />
-                                </td>
-                                <td>Mark Balley</td>
-                                <td>2 Place</td>
-                                <td>US$ 109</td>
-                                <td>
-                                    <a href="#" class="btn btn-small-table btn-primary ">Details</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td scope="row user-table-item">
-                                    <img class="user-table-item" src="images/user_3.png" />
-                                </td>
-                                <td>Aulia Amanda</td>
-                                <td>6 Place</td>
-                                <td>US$ 822</td>
-                                <td>
-                                    <a href="#" class="btn btn-small-table btn-primary ">Details</a>
-                                </td>
-                            </tr>
+                        <?php } ?>
 
                         </tbody>
                     </table>
 
-
                 </div>
-
-
 
             </div>
 
-
-
         </div>
-    </div>
     </div>
 
 

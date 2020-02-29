@@ -104,7 +104,7 @@ for ($i = 0; $i < count($user); $i++) {
                 <?php echo $data['name']; ?>
             </p>
             <p class="admin-level">
-            <?php echo $data['bio']; ?>
+             <?php echo $data['bio']; ?>
             </p>
             <ul class="admin-menus">
                 <a href="dashboard.php">
@@ -246,7 +246,7 @@ for ($i = 0; $i < count($user); $i++) {
                             <?php $temp_user = $user[$i];
                                     $temp_user_final = $data_tourist[$temp_user];
                                     echo $temp_user_final['name'];
-                                 ?>
+                            ?>
                             </p>
                             <br>
                             <p class="sub-title">
