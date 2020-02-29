@@ -5,6 +5,16 @@ include 'firebase/firebase.php';
 $reference = 'User/' . $_SESSION['username'];
 $data = $database->getReference($reference)->getValue();
 
+$reference_tourist = 'User';
+$data_tourist = $database->getReference($reference_tourist)->getValue();
+
+$reference_ticket = 'Ticket';
+$data_ticket = $database->getReference($reference_ticket)->getValue();
+$child_ticket = $database->getReference($reference_ticket)->getChildKeys();
+
+$reference_tour = 'Tour';
+$data_tour = $database->getReference($reference_tour)->getValue();
+
 ?>
 
 <html>
@@ -68,7 +78,7 @@ $data = $database->getReference($reference)->getValue();
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="#">
+                    <a href="firebase/user_destroy.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-power-off"></i>
                         </p>
@@ -112,7 +122,7 @@ $data = $database->getReference($reference)->getValue();
                         Account Settings
                     </li>
                 </a>
-                <a href="#">
+                <a href="firebase/user_destroy.php">
                     <li style="padding-top: 120px;">
                         Log Out
                     </li>
@@ -146,7 +156,7 @@ $data = $database->getReference($reference)->getValue();
                                 USERS LIFETIME
                             </p>
                             <p class="value-item">
-                                209
+                                <?php echo count($data_tourist) ?>
                             </p>
                             <p class="desc-item">
                                 around the earth
@@ -168,7 +178,7 @@ $data = $database->getReference($reference)->getValue();
                                 TICKET BEING SOLD
                             </p>
                             <p class="value-item">
-                                12
+                                <?php echo count($data_ticket) ?>
                             </p>
                             <p class="desc-item">
                                 around the world
@@ -190,7 +200,7 @@ $data = $database->getReference($reference)->getValue();
                                 PLACE THAT AVAILABLE
                             </p>
                             <p class="value-item">
-                                6
+                            <?php echo count($data_tour) ?>
                             </p>
                             <p class="desc-item">
                                 around the Indonesia
@@ -297,37 +307,29 @@ $data = $database->getReference($reference)->getValue();
 
                     <div class="divider-line"></div>
 
+                    <?php for ($i =0; $i < count($child_ticket); $i++) { ?>
+
                     <div class="user-item">
                         <div class="user-picture">
                             <img src="images/user_3.png" alt="">
                         </div>
                         <div class="user-info">
                             <p class="title">
-                                Hanna Pie
+                                 <?php $temp_user = $child_ticket[$i];
+                                    $temp_user_final = $data_tourist[$temp_user];
+                                    echo $temp_user_final['name'];
+                                 ?>
                             </p>
                             <br>
                             <p class="sub-title">
-                                Book Finder
+                                <?php echo $temp_user_final['bio'];
+                                ?>
                             </p>
                         </div>
                         <a href="#" class="btn btn-small-border btn-primary ">View Profile</a>
                     </div>
 
-                    <div class="user-item">
-                        <div class="user-picture">
-                            <img src="images/user_2.png" alt="">
-                        </div>
-                        <div class="user-info">
-                            <p class="title">
-                                Gobby James
-                            </p>
-                            <br>
-                            <p class="sub-title">
-                                Gamers
-                            </p>
-                        </div>
-                        <a href="#" class="btn btn-small-border btn-primary ">View Profile</a>
-                    </div>
+                    <?php } ?>
 
                 </div>
 
