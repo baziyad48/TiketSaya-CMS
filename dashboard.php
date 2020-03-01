@@ -250,7 +250,7 @@ for ($i = 0; $i < count($user); $i++) {
                             </p>
                             <br>
                             <p class="sub-title">
-                             <?php echo $temp_user_final['bio']; ?>
+                                 <?php echo $temp_user_final['bio']; ?>
                             </p>
                         </div>
                         <a href="#" class="btn btn-small-border btn-primary ">View Profile</a>
