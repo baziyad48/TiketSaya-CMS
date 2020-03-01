@@ -1,5 +1,9 @@
 <?php
-include 'firebase/auth_session.php'
+include 'firebase/auth_session.php';
+include 'firebase/firebase.php';
+
+$reference = 'User/' . $_SESSION['username'];
+$data = $database->getReference($reference)->getValue();
 ?>
 
 <html>
@@ -23,7 +27,7 @@ include 'firebase/auth_session.php'
             <div class="menus">
 
                 <div class="item-menu inactive">
-                    <a href="dashboard.html">
+                    <a href="dashboard.php">
                         <p class="icon-item-menu">
                             <i class="fab fa-delicious"></i>
                         </p>
@@ -31,7 +35,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="sales.html">
+                    <a href="sales.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-ticket-alt"></i>
                         </p>
@@ -39,7 +43,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu">
-                    <a href="wisata.html">
+                    <a href="wisata.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-globe"></i>
                         </p>
@@ -47,7 +51,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="customer.html">
+                    <a href="customer.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-users"></i>
                         </p>
@@ -55,7 +59,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="setting.html">
+                    <a href="setting.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-cog"></i>
                         </p>
@@ -76,33 +80,33 @@ include 'firebase/auth_session.php'
                 <img src="images/admin_picture.png" alt="">
             </div>
             <p class="admin-name">
-                Angga Risky
+                <?php echo $data['name']; ?>
             </p>
             <p class="admin-level">
-                Super Admin
+                <?php echo $data['bio']; ?>
             </p>
             <ul class="admin-menus">
-                <a href="dashboard.html">
+                <a href="dashboard.php">
                     <li>
                         My Dashboard
                     </li>
                 </a>
-                <a href="sales.html">
+                <a href="sales.php">
                     <li>
                         Ticket Sales
                     </li>
                 </a>
-                <a href="wisata.html">
+                <a href="wisata.php">
                     <li class="active-link">
                         Manage Wisata
                     </li>
                 </a>
-                <a href="customer.html">
+                <a href="customer.php">
                     <li>
                         Customers <span class="badge-tiketsaya badge badge-pill badge-primary">96</span>
                     </li>
                 </a>
-                <a href="setting.html">
+                <a href="setting.php">
                     <li>
                         Account Settings
                     </li>
@@ -124,7 +128,7 @@ include 'firebase/auth_session.php'
                 </p>
                 <nav aria-label="sitemap-ts breadcrumb">
                     <ol class="breadcrumb" style="margin-left: -15px; background: none;">
-                        <li class="breadcrumb-item"><a style="color: #C7C7C7;" href="wisata.html">Wisata</a></li>
+                        <li class="breadcrumb-item"><a style="color: #C7C7C7;" href="wisata.php">Wisata</a></li>
                         <li style="color: #21272C;" class="breadcrumb-item active" aria-current="page">Details Wisata
                         </li>
                     </ol>

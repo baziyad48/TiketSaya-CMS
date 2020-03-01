@@ -91,7 +91,7 @@ $ticket = $database->getReference("Ticket/".$user_flag)->getChildKeys();
                 <img src="images/admin_picture.png" alt="">
             </div>
             <p class="admin-name">
-             <?php echo $data['name']; ?>
+                <?php echo $data['name']; ?>
             </p>
             <p class="admin-level">
                 <?php echo $data['bio']; ?>
@@ -189,7 +189,7 @@ $ticket = $database->getReference("Ticket/".$user_flag)->getChildKeys();
                                 <?php $temp_ticket = $ticket[$i];
                                         $temp_ticket_final = $data_ticket[$temp_ticket];
                                         echo $temp_ticket_final['tour_name'];
-                                    ?>
+                                ?>
                                 </p>
                                 <p class="subtitle-info-wisata-place">
                                 <?php echo $temp_ticket_final['location'] ?>

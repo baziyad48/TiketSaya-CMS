@@ -1,5 +1,14 @@
 <?php
-include 'firebase/auth_session.php'
+include 'firebase/auth_session.php';
+include 'firebase/firebase.php';
+
+$reference = 'User/' . $_SESSION['username'];
+$data = $database->getReference($reference)->getValue();
+
+$reference_tour = 'Tour';
+$data_tour = $database->getReference($reference_tour)->getValue();
+$tour = $database->getReference($reference_tour)->getChildKeys();
+
 ?>
 
 <html>
@@ -23,7 +32,7 @@ include 'firebase/auth_session.php'
             <div class="menus">
 
                 <div class="item-menu inactive">
-                    <a href="dashboard.html">
+                    <a href="dashboard.php">
                         <p class="icon-item-menu">
                             <i class="fab fa-delicious"></i>
                         </p>
@@ -31,7 +40,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="sales.html">
+                    <a href="sales.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-ticket-alt"></i>
                         </p>
@@ -39,7 +48,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu">
-                    <a href="wisata.html">
+                    <a href="wisata.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-globe"></i>
                         </p>
@@ -47,7 +56,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="customer.html">
+                    <a href="customer.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-users"></i>
                         </p>
@@ -55,7 +64,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="setting.html">
+                    <a href="setting.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-cog"></i>
                         </p>
@@ -76,33 +85,33 @@ include 'firebase/auth_session.php'
                 <img src="images/admin_picture.png" alt="">
             </div>
             <p class="admin-name">
-                Angga Risky
+                <?php echo $data['name']; ?>
             </p>
             <p class="admin-level">
-                Super Admin
+                <?php echo $data['bio']; ?>
             </p>
             <ul class="admin-menus">
-                <a href="dashboard.html">
+                <a href="dashboard.php">
                     <li>
                         My Dashboard
                     </li>
                 </a>
-                <a href="sales.html">
+                <a href="sales.php">
                     <li>
                         Ticket Sales
                     </li>
                 </a>
-                <a href="wisata.html">
+                <a href="wisata.php">
                     <li class="active-link">
                         Manage Wisata
                     </li>
                 </a>
-                <a href="customer.html">
+                <a href="customer.php">
                     <li>
                         Customers <span class="badge-tiketsaya badge badge-pill badge-primary">96</span>
                     </li>
                 </a>
-                <a href="setting.html">
+                <a href="setting.php">
                     <li>
                         Account Settings
                     </li>
@@ -133,7 +142,6 @@ include 'firebase/auth_session.php'
             <div class="col-md-12">
                 <div class="item-big-report col-md-12">
 
-
                     <table class="table-wisata table-tiketsaya table table-borderless">
                         <thead>
                             <tr>
@@ -146,52 +154,32 @@ include 'firebase/auth_session.php'
                         </thead>
                         <tbody>
 
+                        <?php for ($i =0; $i < count($tour); $i++) { ?>
                             <tr>
-                                <td>Monas</td>
-                                <td>Jakarta, Indonesia</td>
-                                <td>January 22, 2019</td>
-                                <td>US$ 20</td>
                                 <td>
-                                    <a href="manage_wisata.html" class="btn btn-small-table btn-primary ">Details</a>
+                                    <?php $temp_tour = $tour[$i];
+                                        $temp_tour_final = $data_tour[$temp_tour];
+                                        echo $temp_tour_final['tour_name'];
+                                    ?>
+                                </td>
+                                <td><?php echo $temp_tour_final['location'] ?></td>
+                                <td><?php echo $temp_tour_final['tour_date'] ?></td>
+                                <td>US$ <?php echo $temp_tour_final['ticket_price'] ?></td>
+                                <td>
+                                    <a href="manage_wisata.php?tour_name=<?php echo $temp_tour_final['tour_name'] ?>" class="btn btn-small-table btn-primary ">Details</a>
                                 </td>
                             </tr>
-
-                            <tr>
-                                <td>Candi</td>
-                                <td>Magelang, Indonesia</td>
-                                <td>March 1, 2019</td>
-                                <td>US$ 220</td>
-                                <td>
-                                    <a href="manage_wisata.html" class="btn btn-small-table btn-primary ">Details</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Pisa</td>
-                                <td>Plance, Italy</td>
-                                <td>August 16, 2019</td>
-                                <td>US$ 120</td>
-                                <td>
-                                    <a href="manage_wisata.html" class="btn btn-small-table btn-primary ">Details</a>
-                                </td>
-                            </tr>
+                        <?php } ?>
 
                         </tbody>
                     </table>
 
-
                 </div>
-
-
 
             </div>
 
-
-
         </div>
     </div>
-    </div>
-
 
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
