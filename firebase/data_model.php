@@ -23,7 +23,7 @@ if (isset($_POST['sign_in'])) {
             echo "Username atau Password salah!";
         }
     }
-} elseif (isset($_POST['update'])) {
+} elseif (isset($_POST['tour_update'])) {
     $tour_name = htmlspecialchars($_POST['tour_name']);
     $location = htmlspecialchars($_POST['location']);
     $ticket_price = htmlspecialchars($_POST['ticket_price']);
@@ -73,4 +73,26 @@ if (isset($_POST['sign_in'])) {
 
     $upload = $database->getReference($reference)->update($data);
     header('location: ../customer.php');
+} elseif (isset($_POST['admin_profile'])) {
+    $username = htmlspecialchars($_POST['username']);
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $password = htmlspecialchars($_POST['password']);
+    $bio = htmlspecialchars($_POST['bio']);
+    $balance = htmlspecialchars($_POST['balance']);
+
+    $reference = 'User/' . $username;
+
+    $data = [
+        'username' => $username,
+        'name' => $name,
+        'email' => $email,
+        'password' => $password,
+        'bio' => $bio,
+        'balance' => $balance
+    ];
+
+    print_r($data);
+    $upload = $database->getReference($reference)->update($data);
+    header('location: ../setting.php');
 }

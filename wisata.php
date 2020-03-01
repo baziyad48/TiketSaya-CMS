@@ -5,6 +5,9 @@ include 'firebase/firebase.php';
 $reference = 'User/' . $_SESSION['username'];
 $data = $database->getReference($reference)->getValue();
 
+$reference_tourist = 'User';
+$data_tourist = $database->getReference($reference_tourist)->getValue();
+
 $reference_tour = 'Tour';
 $data_tour = $database->getReference($reference_tour)->getValue();
 $tour = $database->getReference($reference_tour)->getChildKeys();
@@ -108,7 +111,7 @@ $tour = $database->getReference($reference_tour)->getChildKeys();
                 </a>
                 <a href="customer.php">
                     <li>
-                        Customers <span class="badge-tiketsaya badge badge-pill badge-primary">96</span>
+                        Customers <span class="badge-tiketsaya badge badge-pill badge-primary"><?php echo count($data_tourist) ?></span>
                     </li>
                 </a>
                 <a href="setting.php">
@@ -182,6 +185,7 @@ $tour = $database->getReference($reference_tour)->getChildKeys();
     </div>
 
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
 </body>

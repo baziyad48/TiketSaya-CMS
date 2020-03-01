@@ -109,7 +109,7 @@ $data_tourist = $database->getReference($reference_tourist)->getValue();
                 </a>
                 <a href="customer.php">
                     <li class="active-link">
-                        Customers <span class="badge-tiketsaya badge badge-pill badge-primary">96</span>
+                        Customers <span class="badge-tiketsaya badge badge-pill badge-primary"><?php echo count($database->getReference("User")->getValue()) ?></span>
                     </li>
                 </a>
                 <a href="setting.php">
@@ -253,6 +253,7 @@ $data_tourist = $database->getReference($reference_tourist)->getValue();
 
 
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
 </body>

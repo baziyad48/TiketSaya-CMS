@@ -104,7 +104,7 @@ for ($i = 0; $i < count($user); $i++) {
                 <?php echo $data['name']; ?>
             </p>
             <p class="admin-level">
-             <?php echo $data['bio']; ?>
+                <?php echo $data['bio']; ?>
             </p>
             <ul class="admin-menus">
                 <a href="dashboard.php">
@@ -124,7 +124,7 @@ for ($i = 0; $i < count($user); $i++) {
                 </a>
                 <a href="customer.php">
                     <li>
-                        Customers <span class="badge-tiketsaya badge badge-pill badge-primary">96</span>
+                        Customers <span class="badge-tiketsaya badge badge-pill badge-primary"><?php echo count($data_tourist) ?></span>
                     </li>
                 </a>
                 <a href="setting.php">
@@ -309,10 +309,9 @@ for ($i = 0; $i < count($user); $i++) {
 
         </div>
     </div>
-    </div>
-
 
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
 </body>

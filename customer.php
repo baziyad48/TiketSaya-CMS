@@ -88,7 +88,7 @@ $user = $database->getReference($reference_ticket)->getChildKeys();
                 <img src="images/admin_picture.png" alt="">
             </div>
             <p class="admin-name">
-             <?php echo $data['username']; ?>
+             <?php echo $data['name']; ?>
             </p>
             <p class="admin-level">
                 <?php echo $data['bio']; ?>
@@ -111,7 +111,7 @@ $user = $database->getReference($reference_ticket)->getChildKeys();
                 </a>
                 <a href="customer.php">
                     <li class="active-link">
-                        Customers <span class="badge-tiketsaya badge badge-pill badge-primary">96</span>
+                        Customers <span class="badge-tiketsaya badge badge-pill badge-primary"><?php echo count($data_tourist) ?></span>
                     </li>
                 </a>
                 <a href="setting.php">
@@ -192,8 +192,8 @@ $user = $database->getReference($reference_ticket)->getChildKeys();
         </div>
     </div>
 
-
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
 </body>

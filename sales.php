@@ -111,7 +111,7 @@ $user = $database->getReference("Ticket")->getChildKeys();
                 </a>
                 <a href="customer.php">
                     <li>
-                        Customers <span class="badge-tiketsaya badge badge-pill badge-primary">96</span>
+                        Customers <span class="badge-tiketsaya badge badge-pill badge-primary"><?php echo count($data_tourist) ?></span>
                     </li>
                 </a>
                 <a href="setting.php">
@@ -197,6 +197,7 @@ $user = $database->getReference("Ticket")->getChildKeys();
 
 
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
 </body>

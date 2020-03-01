@@ -10,6 +10,9 @@ $tour_flag = $_GET['tour_name'];
 $reference_tour = 'Tour/'.$tour_flag;
 $data_tour = $database->getReference($reference_tour)->getValue();
 
+$reference_tourist = 'User';
+$data_tourist = $database->getReference($reference_tourist)->getValue();
+
 ?>
 
 <html>
@@ -109,7 +112,7 @@ $data_tour = $database->getReference($reference_tour)->getValue();
                 </a>
                 <a href="customer.php">
                     <li>
-                        Customers <span class="badge-tiketsaya badge badge-pill badge-primary">96</span>
+                        Customers <span class="badge-tiketsaya badge badge-pill badge-primary"><?php echo count($data_tourist) ?></span>
                     </li>
                 </a>
                 <a href="setting.php">
@@ -229,7 +232,7 @@ $data_tour = $database->getReference($reference_tour)->getValue();
                                     <input id="image_file" type="file" />
                                 </div>
                                 <input type="hidden" name="tour_name" value="<?php echo $tour_flag ?>">
-                                <button name="update" type="submit" class="btn btn-primary btn-primary-tiketsaya">Update</button>
+                                <button name="tour_update" type="submit" class="btn btn-primary btn-primary-tiketsaya">Update</button>
                                 <button style="margin-left: 10px;" type="reset"
                                     class="btn btn-primary btn-secondary-tiketsaya">Cancel</button>
                             </form>
@@ -249,9 +252,8 @@ $data_tour = $database->getReference($reference_tour)->getValue();
     </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
 </body>
