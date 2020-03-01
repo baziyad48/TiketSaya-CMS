@@ -192,8 +192,8 @@ $user = $database->getReference($reference_ticket)->getChildKeys();
         </div>
     </div>
 
-    <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
 </body>

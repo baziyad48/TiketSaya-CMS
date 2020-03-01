@@ -214,11 +214,7 @@ $data_tourist = $database->getReference($reference_tourist)->getValue();
 
                         </div>
 
-
-
                     </div>
-
-
 
                 </div>
             </div>
@@ -230,18 +226,36 @@ $data_tourist = $database->getReference($reference_tourist)->getValue();
                     <p class="desc">
                         If you sure to delete the admin’s account
                     </p>
-                    <a href="#" class="btn-delete btn btn-primary">
+                    <button type="button" class="btn-delete btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Delete Account
-                    </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 
-
-    <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 
 </body>
