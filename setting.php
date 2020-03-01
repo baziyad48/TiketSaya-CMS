@@ -226,7 +226,7 @@ $data_tourist = $database->getReference($reference_tourist)->getValue();
                     <p class="desc">
                         If you sure to delete the admin’s account
                     </p>
-                    <button type="button" class="btn-delete btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <button name="admin_delete" type="button" class="btn-delete btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Delete Account
                     </button>
                 </div>
@@ -237,17 +237,23 @@ $data_tourist = $database->getReference($reference_tourist)->getValue();
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        Are you sure want to delete this account?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+
+                         <form method="POST" action="firebase/data_model.php">
+                            <input type="hidden" name="username" value="<?php echo $data['username']; ?>">
+                            <button name="admin_delete" type="submit" class="btn-delete btn btn-primary">
+                                Delete
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

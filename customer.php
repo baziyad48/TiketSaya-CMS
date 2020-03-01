@@ -11,7 +11,7 @@ $data_ticket = $database->getReference($reference_ticket)->getValue();
 $reference_tourist = 'User';
 $data_tourist = $database->getReference($reference_tourist)->getValue();
 
-$user = $database->getReference($reference_ticket)->getChildKeys();
+$user = $database->getReference($reference_tourist)->getChildKeys();
 ?>
 
 <html>

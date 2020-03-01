@@ -14,11 +14,12 @@ $data_ticket = $database->getReference($reference_ticket)->getValue();
 $reference_tour = 'Tour';
 $data_tour = $database->getReference($reference_tour)->getValue();
 
-$user = $database->getReference($reference_ticket)->getChildKeys();
+$user = $database->getReference($reference_tourist)->getChildKeys();
+$user_ticket = $database->getReference($reference_ticket)->getChildKeys();
 $ticket_total = 0;
 
-for ($i = 0; $i < count($user); $i++) {
-    $temp = $user[$i];
+for ($i = 0; $i < count($user_ticket); $i++) {
+    $temp = $user_ticket[$i];
     $temp_final = $data_tourist[$temp];
     $reference_ticket_count = 'Ticket/'.$temp_final['username'];
     $counter = sizeof($database->getReference($reference_ticket_count)->getChildKeys());

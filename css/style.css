@@ -18,7 +18,7 @@ body {
 }
 
 .btn-cancel-secondary:hover {
-    color:#203DD1;
+    color: #203DD1;
     border: 1px solid #203DD1;
 }
 
@@ -130,13 +130,9 @@ body {
     object-fit: cover;
 }
 
-.sitemap-ts {
-    
-}
+.sitemap-ts {}
 
-.table-wisata {
-
-}
+.table-wisata {}
 
 .table-wisata thead tr th {
     text-align: left !important;
@@ -148,11 +144,11 @@ body {
     margin-bottom: 10px;
 }
 
-.table-wisata tbody tr:hover{
+.table-wisata tbody tr:hover {
     background: #F7F9FC;
 }
 
-.table-wisata tbody tr:hover td{
+.table-wisata tbody tr:hover td {
     color: #203DD1;
 }
 
@@ -210,9 +206,9 @@ body {
     background: #203DD1 !important;
     color: #FFF !important;
     border: 0px !important;
-    -webkit-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
--moz-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
+    box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
 }
 
 .btn-small-border {
@@ -250,9 +246,7 @@ box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
     color: #203DD1;
 }
 
-.main-content-user-details {
-    
-}
+.main-content-user-details {}
 
 .item-danger-zone .title {
     color: #212121;
@@ -282,7 +276,7 @@ box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
     border-radius: 8px;
     margin-top: 35px;
     padding-left: 20px;
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(246,247,251,1) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(246, 247, 251, 1) 100%);
     padding-top: 30px;
     padding-bottom: 30px;
 }
@@ -300,13 +294,13 @@ box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
 }
 
 .main-content .report-group .item-big-report {
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(246,247,251,1) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(246, 247, 251, 1) 100%);
     border-radius: 8px;
     padding-top: 30px;
     padding-bottom: 20px;
 }
 
-.main-content .report-group .item-big-report .user-item  {
+.main-content .report-group .item-big-report .user-item {
     width: 100%;
     overflow: hidden;
     margin-bottom: 15px;
@@ -323,7 +317,7 @@ box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
     font-weight: 300;
     font-family: 'Montserrat';
     margin: 0;
-    
+
 }
 
 .main-content .report-group .item-big-report .user-item .title {
@@ -384,7 +378,7 @@ box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
 }
 
 .item-customer {
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(246,247,251,1) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(246, 247, 251, 1) 100%);
     background-size: cover;
     border-radius: 8px;
     background-position: center right;
@@ -413,9 +407,9 @@ box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
     background: #203DD1 !important;
     color: #fff !important;
     border: 0 !important;
-    -webkit-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
--moz-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
+    box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
     font-weight: 500 !important;
     margin-top: 60px !important;
     margin-left: -170px !important;
@@ -435,9 +429,9 @@ box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
     background: #203DD1;
     color: #fff;
     border: 0 !important;
-    -webkit-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
--moz-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
+    box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
 }
 
 .item-customer .wrap-picture {
@@ -549,7 +543,7 @@ box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
 .side-left .admin-profile {
     width: 240px;
     height: 1100px;
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(246,247,251,1) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(246, 247, 251, 1) 100%);
     float: left;
 }
 
@@ -686,7 +680,7 @@ box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
 .side-left .shortcut {
     width: 70px;
     height: 1100px;
-    background: linear-gradient(0deg, rgba(37,149,245,1) 0%, rgba(32,61,209,1) 100%);
+    background: linear-gradient(0deg, rgba(37, 149, 245, 1) 0%, rgba(32, 61, 209, 1) 100%);
     float: left;
 }
 
@@ -726,9 +720,9 @@ box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
     padding-top: 8px;
     margin-top: 70px;
     margin-left: 60px;
-    -webkit-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
--moz-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
+    box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
 }
 
 .btn-primary-tiketsaya {
@@ -741,9 +735,9 @@ box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
     font-weight: 500;
     color: #FFF;
     margin-top: 30px;
-    -webkit-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
--moz-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
-box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
+    box-shadow: 0px 3px 9px 0px rgba(32, 61, 209, 0.21);
 }
 
 .btn-secondary-tiketsaya {
@@ -786,7 +780,7 @@ box-shadow: 0px 3px 9px 0px rgba(32,61,209,0.21);
 .form-sign-in {
     padding-top: 100px;
     padding-bottom: 100px;
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(246,247,251,1) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(246, 247, 251, 1) 100%);
     overflow: hidden;
     border-radius: 8px;
 }
