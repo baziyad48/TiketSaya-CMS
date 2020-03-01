@@ -75,7 +75,7 @@ $user = $database->getReference("Ticket")->getChildKeys();
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="#">
+                    <a href="firebase/user_destroy.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-power-off"></i>
                         </p>
@@ -119,7 +119,7 @@ $user = $database->getReference("Ticket")->getChildKeys();
                         Account Settings
                     </li>
                 </a>
-                <a href="#">
+                <a href="firebase/user_destroy.php">
                     <li style="padding-top: 120px;">
                         Log Out
                     </li>
@@ -171,19 +171,16 @@ $user = $database->getReference("Ticket")->getChildKeys();
                                  </td>
                                 <td>
                                     <?php
-                                        $temp_user = $user[$i];
-                                        $temp_user_final = $data_tourist[$temp_user];
-                                        echo sizeof($data_ticket[$temp_user_final['username']]);
+                                        echo sizeof($data_ticket[$temp_user_final['username']])." Place";
                                     ?>
                                 </td>
                                 <td>
-                                    <?php $temp_user = $user[$i];
-                                        $temp_user_final = $data_tourist[$temp_user];
+                                    <?php
                                         echo $temp_user_final['balance'];
                                     ?>
                                 </td>
                                 <td>
-                                    <a href="sales_detail.php" class="btn btn-small-table btn-primary ">Details</a>
+                                    <a href="sales_detail.php?username=<?php echo $temp_user_final['username']?>" class="btn btn-small-table btn-primary ">Details</a>
                                 </td>
                             </tr>
                         <?php } ?>
