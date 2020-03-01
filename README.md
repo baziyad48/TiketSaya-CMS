@@ -1,7 +1,7 @@
 # TiketSaya-CMS
 Content Management System for TiketSaya app. <br> <br>
-Testing : https://drive.google.com/file/d/1C5zElz45rSyIvNkBxMNF40r9OPH1p8gM/view?usp=sharing <br>
-Mockup : https://drive.google.com/file/d/19bjsNFghGFlKcB0POY2YlmHu0rGJaBAS/view?usp=sharing
+Testing : Belum tersedia <br>
+Mockup : https://drive.google.com/file/d/1nCjVNtg3IbgrG0uSP7FY3zif80LRSrsN/view?usp=sharing
 
 ## Preview
 
