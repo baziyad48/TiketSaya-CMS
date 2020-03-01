@@ -72,7 +72,7 @@ $tour = $database->getReference($reference_tour)->getChildKeys();
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="#">
+                    <a href="firebase/user_destroy.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-power-off"></i>
                         </p>
@@ -116,7 +116,7 @@ $tour = $database->getReference($reference_tour)->getChildKeys();
                         Account Settings
                     </li>
                 </a>
-                <a href="#">
+                <a href="firebase/user_destroy.php">
                     <li style="padding-top: 120px;">
                         Log Out
                     </li>

@@ -4,6 +4,12 @@ include 'firebase/firebase.php';
 
 $reference = 'User/' . $_SESSION['username'];
 $data = $database->getReference($reference)->getValue();
+
+$tour_flag = $_GET['tour_name'];
+
+$reference_tour = 'Tour/'.$tour_flag;
+$data_tour = $database->getReference($reference_tour)->getValue();
+
 ?>
 
 <html>
@@ -67,7 +73,7 @@ $data = $database->getReference($reference)->getValue();
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="#">
+                    <a href="firebase/user_destroy.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-power-off"></i>
                         </p>
@@ -111,7 +117,7 @@ $data = $database->getReference($reference)->getValue();
                         Account Settings
                     </li>
                 </a>
-                <a href="#">
+                <a href="firebase/user_destroy.php">
                     <li style="padding-top: 120px;">
                         Log Out
                     </li>
@@ -124,7 +130,7 @@ $data = $database->getReference($reference)->getValue();
         <div class="header row">
             <div class="col-md-12">
                 <p class="header-title">
-                    Candi
+                    <?php echo $data_tour['tour_name']; ?>
                 </p>
                 <nav aria-label="sitemap-ts breadcrumb">
                     <ol class="breadcrumb" style="margin-left: -15px; background: none;">
@@ -154,67 +160,67 @@ $data = $database->getReference($reference)->getValue();
                         </div>
 
                         <div class="col-md-5">
-                            <form>
+                            <form method="POST" action="firebase/data_model.php">
 
                                 <div class="form-group content-sign-in">
                                     <label class="title-input-type-primary-tiketsaya" for="exampleInputEmail1">Nama
                                         Wisata</label>
-                                    <input type="text" class="form-control input-type-primary-tiketsaya"
-                                        id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Wisata">
+                                    <input disabled type="text" class="form-control input-type-primary-tiketsaya"
+                                        id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama Wisata" value="<?php echo $data_tour['tour_name']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label class="title-input-type-primary-tiketsaya" for="exampleInputPassword1">Lokasi
                                         Wisata</label>
-                                    <input type="text" class="form-control input-type-primary-tiketsaya"
-                                        id="exampleInputPassword1" placeholder="Lokasi">
+                                    <input type="text" name="location" class="form-control input-type-primary-tiketsaya"
+                                        id="exampleInputPassword1" placeholder="Lokasi" value="<?php echo $data_tour['location']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label class="title-input-type-primary-tiketsaya"
                                                 for="exampleInputPassword1">Harga Tiket (US$)</label>
-                                            <input type="number" class="form-control input-type-primary-tiketsaya"
-                                                id="exampleInputPassword1" placeholder="Harga">
+                                            <input type="number" name="ticket_price" class="form-control input-type-primary-tiketsaya"
+                                                id="exampleInputPassword1" placeholder="Harga" value="<?php echo $data_tour['ticket_price']; ?>">
                                         </div>
                                         <div class="col-md-6">
                                             <label class="title-input-type-primary-tiketsaya"
                                                 for="exampleInputPassword1">Tanggal Wisata</label>
-                                            <input type="text" class="form-control input-type-primary-tiketsaya"
-                                                id="exampleInputPassword1" placeholder="Tanggal">
+                                            <input type="text" name="tour_date" class="form-control input-type-primary-tiketsaya"
+                                                id="exampleInputPassword1" placeholder="Tanggal" value="<?php echo $data_tour['tour_date']; ?>">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group" style="margin-top: -20px;">
                                     <label class="title-input-type-primary-tiketsaya"
                                         for="exampleFormControlTextarea1">Ketentuan</label>
-                                    <textarea class="input-type-primary-tiketsaya form-control"
-                                        id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea class="input-type-primary-tiketsaya form-control" name="policy"
+                                        id="exampleFormControlTextarea1" rows="3"><?php echo $data_tour['policy']; ?></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label class="title-input-type-primary-tiketsaya"
                                         for="exampleFormControlTextarea1">Deskripsi Wisata</label>
-                                    <textarea class="input-type-primary-tiketsaya form-control"
-                                        id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea class="input-type-primary-tiketsaya form-control" name="short_description"
+                                        id="exampleFormControlTextarea1" rows="3"><?php echo $data_tour['short_description']; ?></textarea>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label class="title-input-type-primary-tiketsaya"
                                                 for="exampleInputPassword1">has Wifi?</label>
-                                            <input type="text" class="form-control input-type-primary-tiketsaya"
-                                                id="exampleInputPassword1" placeholder="Wifi">
+                                            <input type="text" name="is_wifi" class="form-control input-type-primary-tiketsaya"
+                                                id="exampleInputPassword1" placeholder="Wifi" value="<?php echo $data_tour['is_wifi']; ?>">
                                         </div>
                                         <div class="col-md-4">
                                             <label class="title-input-type-primary-tiketsaya"
                                                 for="exampleInputPassword1">has Spot?</label>
-                                            <input type="number" class="form-control input-type-primary-tiketsaya"
-                                                id="exampleInputPassword1" placeholder="Spot">
+                                            <input type="text" name="is_photo_spot" class="form-control input-type-primary-tiketsaya"
+                                                id="exampleInputPassword1" placeholder="Spot" value="<?php echo $data_tour['is_photo_spot']; ?>">
                                         </div>
                                         <div class="col-md-4">
                                             <label class="title-input-type-primary-tiketsaya"
                                                 for="exampleInputPassword1">has Festival?</label>
-                                            <input type="text" class="form-control input-type-primary-tiketsaya"
-                                                id="exampleInputPassword1" placeholder="Festival">
+                                            <input type="text" name="is_festival" class="form-control input-type-primary-tiketsaya"
+                                                id="exampleInputPassword1" placeholder="Festival" value="<?php echo $data_tour['is_festival']; ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -222,7 +228,8 @@ $data = $database->getReference($reference)->getValue();
                                     class="form-group content-sign-in">
                                     <input id="image_file" type="file" />
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-primary-tiketsaya">Update</button>
+                                <input type="hidden" name="tour_name" value="<?php echo $tour_flag ?>">
+                                <button name="update" type="submit" class="btn btn-primary btn-primary-tiketsaya">Update</button>
                                 <button style="margin-left: 10px;" type="reset"
                                     class="btn btn-primary btn-secondary-tiketsaya">Cancel</button>
                             </form>
