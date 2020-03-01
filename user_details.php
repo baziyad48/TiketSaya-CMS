@@ -1,5 +1,15 @@
 <?php
-include 'firebase/auth_session.php'
+include 'firebase/auth_session.php';
+include 'firebase/firebase.php';
+
+$reference = 'User/' . $_SESSION['username'];
+$data = $database->getReference($reference)->getValue();
+
+$user_flag = $_GET['username'];
+
+$reference_tourist = 'User/'.$user_flag;
+$data_tourist = $database->getReference($reference_tourist)->getValue();
+
 ?>
 
 <html>
@@ -23,7 +33,7 @@ include 'firebase/auth_session.php'
             <div class="menus">
 
                 <div class="item-menu inactive">
-                    <a href="dashboard.html">
+                    <a href="dashboard.php">
                         <p class="icon-item-menu">
                             <i class="fab fa-delicious"></i>
                         </p>
@@ -31,7 +41,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="sales.html">
+                    <a href="sales.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-ticket-alt"></i>
                         </p>
@@ -39,7 +49,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="wisata.html">
+                    <a href="wisata.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-globe"></i>
                         </p>
@@ -47,7 +57,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu">
-                    <a href="customer.html">
+                    <a href="customer.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-users"></i>
                         </p>
@@ -55,7 +65,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="setting.html">
+                    <a href="setting.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-cog"></i>
                         </p>
@@ -63,7 +73,7 @@ include 'firebase/auth_session.php'
                 </div>
 
                 <div class="item-menu inactive">
-                    <a href="#">
+                    <a href="firebase/user_destroy.php">
                         <p class="icon-item-menu">
                             <i class="fas fa-power-off"></i>
                         </p>
@@ -76,38 +86,38 @@ include 'firebase/auth_session.php'
                 <img src="images/admin_picture.png" alt="">
             </div>
             <p class="admin-name">
-                Angga Risky
+                <?php echo $data['name']; ?>
             </p>
             <p class="admin-level">
-                Super Admin
+                <?php echo $data['bio']; ?>
             </p>
             <ul class="admin-menus">
-                <a href="dashboard.html">
+                <a href="dashboard.php">
                     <li>
                         My Dashboard
                     </li>
                 </a>
-                <a href="sales.html">
+                <a href="sales.php">
                     <li>
                         Ticket Sales
                     </li>
                 </a>
-                <a href="wisata.html">
+                <a href="wisata.php">
                     <li>
                         Manage Wisata
                     </li>
                 </a>
-                <a href="customer.html">
+                <a href="customer.php">
                     <li class="active-link">
                         Customers <span class="badge-tiketsaya badge badge-pill badge-primary">96</span>
                     </li>
                 </a>
-                <a href="setting.html">
+                <a href="setting.php">
                     <li>
                         Account Settings
                     </li>
                 </a>
-                <a href="#">
+                <a href="firebase/user_destroy.php">
                     <li style="padding-top: 120px;">
                         Log Out
                     </li>
@@ -120,11 +130,11 @@ include 'firebase/auth_session.php'
         <div class="header row">
             <div class="col-md-12">
                 <p class="header-title">
-                    Fynn Lee
+                    <?php echo $user_flag ?>
                 </p>
                 <nav aria-label="sitemap-ts breadcrumb">
                     <ol class="breadcrumb" style="margin-left: -15px; background: none;">
-                        <li class="breadcrumb-item"><a style="color: #C7C7C7;" href="customer.html">Customer</a></li>
+                        <li class="breadcrumb-item"><a style="color: #C7C7C7;" href="customer.php">Customer</a></li>
                         <li style="color: #21272C;" class="breadcrumb-item active" aria-current="page">
                             Profile Details
                         </li>
@@ -150,12 +160,12 @@ include 'firebase/auth_session.php'
 
                             <div class="form-new-user row">
                                 <div class="col-md-8">
-                                    <form>
+                                    <form method="POST" action="firebase/data_model.php">
 
                                         <div class="form-group content-sign-in">
                                             <label class="title-input-type-primary-tiketsaya"
                                                 for="exampleInputEmail1">Username</label>
-                                            <input value="fynnlee" type="text"
+                                            <input disabled value="<?php echo $data_tourist['username']; ?>" type="text"
                                                 class="form-control input-type-primary-tiketsaya"
                                                 id="exampleInputEmail1" aria-describedby="emailHelp"
                                                 placeholder="Nama User">
@@ -165,7 +175,7 @@ include 'firebase/auth_session.php'
                                             <label class="title-input-type-primary-tiketsaya"
                                                 for="exampleInputEmail1">Nama
                                                 Pengguna</label>
-                                            <input value="Fynn Lee" type="text"
+                                            <input name="name" value="<?php echo $data_tourist['name']; ?>" type="text"
                                                 class="form-control input-type-primary-tiketsaya"
                                                 id="exampleInputEmail1" aria-describedby="emailHelp"
                                                 placeholder="Nama Lengkap">
@@ -173,13 +183,13 @@ include 'firebase/auth_session.php'
                                         <div class="form-group">
                                             <label class="title-input-type-primary-tiketsaya"
                                                 for="exampleInputPassword1">Alamat Email</label>
-                                            <input type="text" class="form-control input-type-primary-tiketsaya"
+                                            <input name="email" value="<?php echo $data_tourist['email']; ?>" type="text" class="form-control input-type-primary-tiketsaya"
                                                 id="exampleInputPassword1" placeholder="Email">
                                         </div>
                                         <div class="form-group">
                                             <label class="title-input-type-primary-tiketsaya"
                                                 for="exampleInputPassword1">Kata Sandi</label>
-                                            <input type="password" class="form-control input-type-primary-tiketsaya"
+                                            <input name="password" value="<?php echo $data_tourist['password']; ?>" type="password" class="form-control input-type-primary-tiketsaya"
                                                 id="exampleInputPassword1" placeholder="Password">
                                         </div>
                                         <div class="form-group">
@@ -187,15 +197,16 @@ include 'firebase/auth_session.php'
                                                 <div class="col-md-6">
                                                     <label class="title-input-type-primary-tiketsaya"
                                                         for="exampleInputPassword1">Bio</label>
-                                                    <input type="text" class="form-control input-type-primary-tiketsaya"
-                                                        id="exampleInputPassword1" placeholder="Harga">
+                                                    <input name="bio" value="<?php echo $data_tourist['bio']; ?>" type="text" class="form-control input-type-primary-tiketsaya"
+                                                        id="exampleInputPassword1" placeholder="Bio">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="title-input-type-primary-tiketsaya"
                                                         for="exampleInputPassword1">Balance (US$)</label>
-                                                    <input type="number"
+                                                    <input disabled type="number" value="<?php echo $data_tourist['balance']; ?>"
                                                         class="form-control input-type-primary-tiketsaya"
                                                         id="exampleInputPassword1" placeholder="Tanggal">
+                                                    <input type="hidden" name="balance" value="<?php echo $data_tourist['balance']; ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -203,9 +214,10 @@ include 'firebase/auth_session.php'
                                             class="form-group content-sign-in">
                                             <input id="image_file" type="file" />
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-primary-tiketsaya">Save
+                                        <input type="hidden" name="username" value="<?php echo $user_flag ?>">
+                                        <button name="user_profile" type="submit" class="btn btn-primary btn-primary-tiketsaya">Save
                                             Now</button>
-                                        <a href="customer.html" style="margin-left: 10px;"
+                                        <a href="customer.php" style="margin-left: 10px;"
                                             class="btn btn-cancel-secondary">Cancel</a>
                                     </form>
                                 </div>

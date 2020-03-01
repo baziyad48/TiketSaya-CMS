@@ -52,4 +52,25 @@ if (isset($_POST['sign_in'])) {
 
     $upload = $database->getReference($reference)->update($data);
     header('location: ../wisata.php');
+} elseif (isset($_POST['user_profile'])) {
+    $username = htmlspecialchars($_POST['username']);
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $password = htmlspecialchars($_POST['password']);
+    $bio = htmlspecialchars($_POST['bio']);
+    $balance = htmlspecialchars($_POST['balance']);
+
+    $reference = 'User/' . $username;
+
+    $data = [
+        'username' => $username,
+        'name' => $name,
+        'email' => $email,
+        'password' => $password,
+        'bio' => $bio,
+        'balance' => $balance
+    ];
+
+    $upload = $database->getReference($reference)->update($data);
+    header('location: ../customer.php');
 }
