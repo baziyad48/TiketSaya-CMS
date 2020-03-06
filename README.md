@@ -1,6 +1,6 @@
 # TiketSaya-CMS
 Content Management System for TiketSaya app. <br> <br>
-Testing : Belum tersedia <br>
+Testing : https://tiket-saya.herokuapp.com/ <br>
 Mockup : https://drive.google.com/file/d/1nCjVNtg3IbgrG0uSP7FY3zif80LRSrsN/view?usp=sharing
 
 ## Preview
